@@ -1,7 +1,7 @@
 # ExchangerRate
 
 Данный репозиторий содержит сервис, который обращается к сервису курсов валют, и отдает gif в ответ.
-Сервис построен на базе решений: Spring Boot 2, Gradle, Java, API (Feign), Thymleaf.
+Сервис построен на базе решений: Spring Boot 2, Gradle, Java, API (Feign), Thymeleaf.
 
 Репозиторий доступен так же в Docker по ссылке https://hub.docker.com/r/permishin/exchangerate
 

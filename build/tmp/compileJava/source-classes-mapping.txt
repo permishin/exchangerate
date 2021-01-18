@@ -1,0 +1,17 @@
+com/example/demo/controller/MainController.java
+ com.example.demo.controller.MainController
+com/example/demo/service/GiphyClient.java
+ com.example.demo.service.GiphyClient
+com/example/demo/service/PageClient.java
+ com.example.demo.service.PageClient
+com/example/demo/model/Page.java
+ com.example.demo.model.Page
+com/example/demo/service/Calculator.java
+ com.example.demo.service.Calculator
+com/example/demo/DemoApplication.java
+ com.example.demo.DemoApplication
+com/example/demo/model/Giphy.java
+ com.example.demo.model.Giphy
+ com.example.demo.model.Giphy$Images
+com/example/demo/controller/EditController.java
+ com.example.demo.controller.EditController

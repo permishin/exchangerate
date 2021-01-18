@@ -1,9 +1,0 @@
-api:
-  valueId: 4e0c458b74f54417a4e3efcb6905f8e4
-  giphyId: 8b5k5E4UHphrvAKUst0yj2ayPjTDj9ZM
-page:
-  ribbon:
-    listOfServers : "https://openexchangerates.org/api"
-giphy:
-  ribbon:
-    listOfServers: "https://api.giphy.com/v1/gifs/random"

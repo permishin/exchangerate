@@ -3,7 +3,7 @@
 Данный репозиторий содержит сервис, который обращается к сервису курсов валют, и отдает gif в ответ.
 Сервис построен на базе решений: Spring Boot 2, Gradle, Java, API (Feign), Thymeleaf.
 
-Репозиторий доступен так же в Docker по ссылке [https://hub.docker.com/r/permishin/exchangerate](https://hub.docker.com/repository/docker/permishin/exchangerates)
+Репозиторий доступен так же в Docker по ссылке [https://hub.docker.com/r/permishin/exchangerates](https://hub.docker.com/repository/docker/permishin/exchangerates)
 
 Запуск в среде разработки:
 

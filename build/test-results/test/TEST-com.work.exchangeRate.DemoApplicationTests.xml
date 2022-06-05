@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.work.exchangeRate.DemoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-05T09:12:51" hostname="MacBook-Air.local" time="1.856">
+  <properties/>
+  <testcase name="test()" classname="com.work.exchangeRate.DemoApplicationTests" time="1.856"/>
+  <system-out><![CDATA[2022-06-05 12:12:48.910  INFO 30309 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.work.exchangeRate.DemoApplicationTests], using SpringBootContextLoader
+2022-06-05 12:12:48.911  INFO 30309 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.work.exchangeRate.DemoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-06-05 12:12:48.911  INFO 30309 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.work.exchangeRate.DemoApplicationTests]: DemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-06-05 12:12:48.944  INFO 30309 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.work.exchangeRate.DemoApplication for test class com.work.exchangeRate.DemoApplicationTests
+2022-06-05 12:12:48.949  INFO 30309 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-06-05 12:12:48.951  INFO 30309 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@293b7450, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@72aec843, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@48253a9d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@43bd1a3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@76d0bc80, org.springframework.test.context.event.EventPublishingTestExecutionListener@72b88ec9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@13a8b3d1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@49c4cece, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3a035fca, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@cfb5085, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5a9b5cf0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@35c65bd3]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2022-06-05 12:12:49.220  INFO 30309 --- [    Test worker] c.w.exchangeRate.DemoApplicationTests    : No active profile set, falling back to default profiles: default
+2022-06-05 12:12:49.904  INFO 30309 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8000c76c-91dd-3041-8f8f-31e9893dab3e
+2022-06-05 12:12:49.990  INFO 30309 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'com.work.exchangeRate.service.PageClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-05 12:12:49.994  INFO 30309 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'com.work.exchangeRate.service.GiphyClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-05 12:12:50.366  WARN 30309 --- [    Test worker] o.s.c.n.a.ArchaiusAutoConfiguration      : Netflix ConfigurationManager has already been installed, unable to re-install
+2022-06-05 12:12:50.586  INFO 30309 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-05 12:12:51.066  INFO 30309 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-06-05 12:12:51.067  INFO 30309 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-06-05 12:12:51.093  INFO 30309 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 26 ms
+2022-06-05 12:12:51.274  INFO 30309 --- [    Test worker] c.w.exchangeRate.DemoApplicationTests    : Started DemoApplicationTests in 2.312 seconds (JVM running for 16.899)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.work.exchangeRate.controller.MainController
+           Method = com.work.exchangeRate.controller.MainController#main(Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = main
+             View = null
+        Attribute = page
+            value = {FJD=2.1368, MXN=19.54515, STD=22994.0, SCR=12.910622, CDF=2004.038697, BBD=2.0, GTQ=7.710011, CLP=811.81, HNL=24.622892, UGX=3745.800949, ZAR=15.543525, TND=3.02, STN=23.15, CUC=1.0, BSD=1.0, SLL=12887.2, SDG=455.5, IQD=1462.353565, CUP=25.75, GMD=54.15, TWD=29.375, RSD=109.536637, DOP=55.207702, KMF=458.749854, MYR=4.391, FKP=0.800737, XOF=611.957277, GEL=2.965, BTC=3.3651795E-5, UYU=40.022165, MAD=9.878728, CVE=103.3, TOP=2.299263, AZN=1.7, OMR=0.38502, PGK=3.530509, KES=116.978189, SEK=9.537335, CNH=6.657785, BTN=77.768691, UAH=29.457448, GNF=8870.767996, ERN=15.000001, MZN=63.850001, SVC=8.767037, ARS=120.67334, QAR=3.659711, IRR=42300.0, XPD=5.0545E-4, CNY=6.6603, THB=34.29387, UZS=11015.948404, XPF=111.32731, MRU=36.541135, BDT=89.20903, LYD=4.786048, BMD=1.0, KWD=0.306277, PHP=52.909995, XPT=9.8188E-4, RUB=63.360006, PYG=6861.311273, ISK=128.081929, JMD=154.180666, COP=3781.3558, MKD=57.492275, USD=1.0, DZD=145.41, PAB=1.0, GGP=0.800737, SGD=1.37397, ETB=52.074408, JEP=0.800737, KGS=79.525751, SOS=579.587715, VUV=114.629832, LAK=13975.742895, BND=1.376531, XAF=611.957277, LRD=151.999978, XAG=0.04559972, CHF=0.961757, HRK=7.026036, ALL=112.223267, DJF=178.372548, VES=5.14485, ZMW=17.033219, TZS=2331.55143, VND=23200.0, XAU=5.4022E-4, AUD=1.387465, ILS=3.340019, GHS=7.840332, GYD=209.623421, KPW=900.0, BOB=6.898421, KHR=4068.935217, MDL=19.067231, IDR=14433.5, KYD=0.834911, AMD=447.269866, BWP=11.999496, SHP=0.800737, TRY=16.4176, LBP=1514.968721, TJS=11.221863, JOD=0.7102, AED=3.6731, HKD=7.8448, RWF=1022.445353, EUR=0.932923, LSL=15.510228, DKK=6.9387, CAD=1.25957, BGN=1.821413, MMK=1855.118735, MUR=43.150001, NOK=9.43645, SYP=2512.53, IMP=0.800737, ZWL=322.0, GIP=0.800737, RON=4.611, LKR=361.204622, NGN=415.814006, CRC=684.124098, CZK=23.0091, PKR=198.136548, XCD=2.70255, ANG=1.805741, HTG=114.223324, BHD=0.377716, KZT=435.599831, SRD=21.353, SZL=15.512281, SAR=3.750665, TTD=6.791608, YER=250.249937, MVR=15.435, AFN=89.162943, INR=77.6934, AWG=1.8005, KRW=1251.53, NPR=124.429799, JPY=130.845, MNT=3105.3554, AOA=426.1758, PLN=4.28225, GBP=0.800737, SBD=8.116969, BYN=3.38321, HUF=365.63, BIF=2060.263278, MWK=816.25, MGA=4055.425659, XDR=0.727495, BZD=2.019646, BAM=1.824519, EGP=18.630186, MOP=8.095189, NAD=15.49, SSP=130.26, NIO=35.919846, PEN=3.713443, NZD=1.515263, WST=2.612952, TMT=3.51, CLF=0.029421, BRL=4.775}
+        Attribute = title
+            value = Курсы Валют - тестовое задание
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html lang="en">
+<head>
+    <header><div>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title >Курсы Валют - тестовое задание</title>
+</div></header>
+</head>
+<body>
+<header><div>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Сервис курсов валют c GIF иллюстрацией</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/">Главная</a>
+        </nav>
+    </div>
+</div></header>
+<divopen><div>
+    <div class="container"></div>
+    <div class="col px-md-5"><div class="p-3 border bg-light"></divopen>
+<div><div >
+    <form method="post" action="/filter">
+        <input type="text" placeholder="Фильтр" name="filter" />
+        <button type="submit">Найти</button>
+    </form>
+</div></div>
+<table>
+    <thead>
+    <tr>
+        <th>Валюта</th>
+        <th>Курс сегодня</th>
+        <th>Сравнить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div>
+        <tr>
+            <td>FJD</td>
+            <td>2.1368</td>
+            <td><a href="/FJD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MXN</td>
+            <td>19.54515</td>
+            <td><a href="/MXN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>STD</td>
+            <td>22994.0</td>
+            <td><a href="/STD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SCR</td>
+            <td>12.910622</td>
+            <td><a href="/SCR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CDF</td>
+            <td>2004.038697</td>
+            <td><a href="/CDF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BBD</td>
+            <td>2.0</td>
+            <td><a href="/BBD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GTQ</td>
+            <td>7.710011</td>
+            <td><a href="/GTQ">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CLP</td>
+            <td>811.81</td>
+            <td><a href="/CLP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>HNL</td>
+            <td>24.622892</td>
+            <td><a href="/HNL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>UGX</td>
+            <td>3745.800949</td>
+            <td><a href="/UGX">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ZAR</td>
+            <td>15.543525</td>
+            <td><a href="/ZAR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TND</td>
+            <td>3.02</td>
+            <td><a href="/TND">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>STN</td>
+            <td>23.15</td>
+            <td><a href="/STN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CUC</td>
+            <td>1.0</td>
+            <td><a href="/CUC">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BSD</td>
+            <td>1.0</td>
+            <td><a href="/BSD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SLL</td>
+            <td>12887.2</td>
+            <td><a href="/SLL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SDG</td>
+            <td>455.5</td>
+            <td><a href="/SDG">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>IQD</td>
+            <td>1462.353565</td>
+            <td><a href="/IQD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CUP</td>
+            <td>25.75</td>
+            <td><a href="/CUP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GMD</td>
+            <td>54.15</td>
+            <td><a href="/GMD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TWD</td>
+            <td>29.375</td>
+            <td><a href="/TWD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>RSD</td>
+            <td>109.536637</td>
+            <td><a href="/RSD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>DOP</td>
+            <td>55.207702</td>
+            <td><a href="/DOP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KMF</td>
+            <td>458.749854</td>
+            <td><a href="/KMF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MYR</td>
+            <td>4.391</td>
+            <td><a href="/MYR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>FKP</td>
+            <td>0.800737</td>
+            <td><a href="/FKP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XOF</td>
+            <td>611.957277</td>
+            <td><a href="/XOF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GEL</td>
+            <td>2.965</td>
+            <td><a href="/GEL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BTC</td>
+            <td>3.3651795E-5</td>
+            <td><a href="/BTC">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>UYU</td>
+            <td>40.022165</td>
+            <td><a href="/UYU">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MAD</td>
+            <td>9.878728</td>
+            <td><a href="/MAD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CVE</td>
+            <td>103.3</td>
+            <td><a href="/CVE">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TOP</td>
+            <td>2.299263</td>
+            <td><a href="/TOP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AZN</td>
+            <td>1.7</td>
+            <td><a href="/AZN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>OMR</td>
+            <td>0.38502</td>
+            <td><a href="/OMR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PGK</td>
+            <td>3.530509</td>
+            <td><a href="/PGK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KES</td>
+            <td>116.978189</td>
+            <td><a href="/KES">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SEK</td>
+            <td>9.537335</td>
+            <td><a href="/SEK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CNH</td>
+            <td>6.657785</td>
+            <td><a href="/CNH">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BTN</td>
+            <td>77.768691</td>
+            <td><a href="/BTN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>UAH</td>
+            <td>29.457448</td>
+            <td><a href="/UAH">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GNF</td>
+            <td>8870.767996</td>
+            <td><a href="/GNF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ERN</td>
+            <td>15.000001</td>
+            <td><a href="/ERN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MZN</td>
+            <td>63.850001</td>
+            <td><a href="/MZN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SVC</td>
+            <td>8.767037</td>
+            <td><a href="/SVC">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ARS</td>
+            <td>120.67334</td>
+            <td><a href="/ARS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>QAR</td>
+            <td>3.659711</td>
+            <td><a href="/QAR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>IRR</td>
+            <td>42300.0</td>
+            <td><a href="/IRR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XPD</td>
+            <td>5.0545E-4</td>
+            <td><a href="/XPD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CNY</td>
+            <td>6.6603</td>
+            <td><a href="/CNY">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>THB</td>
+            <td>34.29387</td>
+            <td><a href="/THB">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>UZS</td>
+            <td>11015.948404</td>
+            <td><a href="/UZS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XPF</td>
+            <td>111.32731</td>
+            <td><a href="/XPF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MRU</td>
+            <td>36.541135</td>
+            <td><a href="/MRU">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BDT</td>
+            <td>89.20903</td>
+            <td><a href="/BDT">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>LYD</td>
+            <td>4.786048</td>
+            <td><a href="/LYD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BMD</td>
+            <td>1.0</td>
+            <td><a href="/BMD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KWD</td>
+            <td>0.306277</td>
+            <td><a href="/KWD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PHP</td>
+            <td>52.909995</td>
+            <td><a href="/PHP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XPT</td>
+            <td>9.8188E-4</td>
+            <td><a href="/XPT">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>RUB</td>
+            <td>63.360006</td>
+            <td><a href="/RUB">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PYG</td>
+            <td>6861.311273</td>
+            <td><a href="/PYG">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ISK</td>
+            <td>128.081929</td>
+            <td><a href="/ISK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>JMD</td>
+            <td>154.180666</td>
+            <td><a href="/JMD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>COP</td>
+            <td>3781.3558</td>
+            <td><a href="/COP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MKD</td>
+            <td>57.492275</td>
+            <td><a href="/MKD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>USD</td>
+            <td>1.0</td>
+            <td><a href="/USD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>DZD</td>
+            <td>145.41</td>
+            <td><a href="/DZD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PAB</td>
+            <td>1.0</td>
+            <td><a href="/PAB">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GGP</td>
+            <td>0.800737</td>
+            <td><a href="/GGP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SGD</td>
+            <td>1.37397</td>
+            <td><a href="/SGD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ETB</td>
+            <td>52.074408</td>
+            <td><a href="/ETB">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>JEP</td>
+            <td>0.800737</td>
+            <td><a href="/JEP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KGS</td>
+            <td>79.525751</td>
+            <td><a href="/KGS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SOS</td>
+            <td>579.587715</td>
+            <td><a href="/SOS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>VUV</td>
+            <td>114.629832</td>
+            <td><a href="/VUV">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>LAK</td>
+            <td>13975.742895</td>
+            <td><a href="/LAK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BND</td>
+            <td>1.376531</td>
+            <td><a href="/BND">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XAF</td>
+            <td>611.957277</td>
+            <td><a href="/XAF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>LRD</td>
+            <td>151.999978</td>
+            <td><a href="/LRD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XAG</td>
+            <td>0.04559972</td>
+            <td><a href="/XAG">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CHF</td>
+            <td>0.961757</td>
+            <td><a href="/CHF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>HRK</td>
+            <td>7.026036</td>
+            <td><a href="/HRK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ALL</td>
+            <td>112.223267</td>
+            <td><a href="/ALL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>DJF</td>
+            <td>178.372548</td>
+            <td><a href="/DJF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>VES</td>
+            <td>5.14485</td>
+            <td><a href="/VES">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ZMW</td>
+            <td>17.033219</td>
+            <td><a href="/ZMW">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TZS</td>
+            <td>2331.55143</td>
+            <td><a href="/TZS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>VND</td>
+            <td>23200.0</td>
+            <td><a href="/VND">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XAU</td>
+            <td>5.4022E-4</td>
+            <td><a href="/XAU">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AUD</td>
+            <td>1.387465</td>
+            <td><a href="/AUD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ILS</td>
+            <td>3.340019</td>
+            <td><a href="/ILS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GHS</td>
+            <td>7.840332</td>
+            <td><a href="/GHS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GYD</td>
+            <td>209.623421</td>
+            <td><a href="/GYD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KPW</td>
+            <td>900.0</td>
+            <td><a href="/KPW">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BOB</td>
+            <td>6.898421</td>
+            <td><a href="/BOB">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KHR</td>
+            <td>4068.935217</td>
+            <td><a href="/KHR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MDL</td>
+            <td>19.067231</td>
+            <td><a href="/MDL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>IDR</td>
+            <td>14433.5</td>
+            <td><a href="/IDR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KYD</td>
+            <td>0.834911</td>
+            <td><a href="/KYD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AMD</td>
+            <td>447.269866</td>
+            <td><a href="/AMD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BWP</td>
+            <td>11.999496</td>
+            <td><a href="/BWP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SHP</td>
+            <td>0.800737</td>
+            <td><a href="/SHP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TRY</td>
+            <td>16.4176</td>
+            <td><a href="/TRY">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>LBP</td>
+            <td>1514.968721</td>
+            <td><a href="/LBP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TJS</td>
+            <td>11.221863</td>
+            <td><a href="/TJS">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>JOD</td>
+            <td>0.7102</td>
+            <td><a href="/JOD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AED</td>
+            <td>3.6731</td>
+            <td><a href="/AED">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>HKD</td>
+            <td>7.8448</td>
+            <td><a href="/HKD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>RWF</td>
+            <td>1022.445353</td>
+            <td><a href="/RWF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>EUR</td>
+            <td>0.932923</td>
+            <td><a href="/EUR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>LSL</td>
+            <td>15.510228</td>
+            <td><a href="/LSL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>DKK</td>
+            <td>6.9387</td>
+            <td><a href="/DKK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CAD</td>
+            <td>1.25957</td>
+            <td><a href="/CAD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BGN</td>
+            <td>1.821413</td>
+            <td><a href="/BGN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MMK</td>
+            <td>1855.118735</td>
+            <td><a href="/MMK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MUR</td>
+            <td>43.150001</td>
+            <td><a href="/MUR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>NOK</td>
+            <td>9.43645</td>
+            <td><a href="/NOK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SYP</td>
+            <td>2512.53</td>
+            <td><a href="/SYP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>IMP</td>
+            <td>0.800737</td>
+            <td><a href="/IMP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ZWL</td>
+            <td>322.0</td>
+            <td><a href="/ZWL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GIP</td>
+            <td>0.800737</td>
+            <td><a href="/GIP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>RON</td>
+            <td>4.611</td>
+            <td><a href="/RON">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>LKR</td>
+            <td>361.204622</td>
+            <td><a href="/LKR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>NGN</td>
+            <td>415.814006</td>
+            <td><a href="/NGN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CRC</td>
+            <td>684.124098</td>
+            <td><a href="/CRC">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CZK</td>
+            <td>23.0091</td>
+            <td><a href="/CZK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PKR</td>
+            <td>198.136548</td>
+            <td><a href="/PKR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XCD</td>
+            <td>2.70255</td>
+            <td><a href="/XCD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>ANG</td>
+            <td>1.805741</td>
+            <td><a href="/ANG">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>HTG</td>
+            <td>114.223324</td>
+            <td><a href="/HTG">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BHD</td>
+            <td>0.377716</td>
+            <td><a href="/BHD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KZT</td>
+            <td>435.599831</td>
+            <td><a href="/KZT">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SRD</td>
+            <td>21.353</td>
+            <td><a href="/SRD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SZL</td>
+            <td>15.512281</td>
+            <td><a href="/SZL">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SAR</td>
+            <td>3.750665</td>
+            <td><a href="/SAR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TTD</td>
+            <td>6.791608</td>
+            <td><a href="/TTD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>YER</td>
+            <td>250.249937</td>
+            <td><a href="/YER">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MVR</td>
+            <td>15.435</td>
+            <td><a href="/MVR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AFN</td>
+            <td>89.162943</td>
+            <td><a href="/AFN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>INR</td>
+            <td>77.6934</td>
+            <td><a href="/INR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AWG</td>
+            <td>1.8005</td>
+            <td><a href="/AWG">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>KRW</td>
+            <td>1251.53</td>
+            <td><a href="/KRW">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>NPR</td>
+            <td>124.429799</td>
+            <td><a href="/NPR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>JPY</td>
+            <td>130.845</td>
+            <td><a href="/JPY">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MNT</td>
+            <td>3105.3554</td>
+            <td><a href="/MNT">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>AOA</td>
+            <td>426.1758</td>
+            <td><a href="/AOA">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PLN</td>
+            <td>4.28225</td>
+            <td><a href="/PLN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>GBP</td>
+            <td>0.800737</td>
+            <td><a href="/GBP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SBD</td>
+            <td>8.116969</td>
+            <td><a href="/SBD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BYN</td>
+            <td>3.38321</td>
+            <td><a href="/BYN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>HUF</td>
+            <td>365.63</td>
+            <td><a href="/HUF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BIF</td>
+            <td>2060.263278</td>
+            <td><a href="/BIF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MWK</td>
+            <td>816.25</td>
+            <td><a href="/MWK">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MGA</td>
+            <td>4055.425659</td>
+            <td><a href="/MGA">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>XDR</td>
+            <td>0.727495</td>
+            <td><a href="/XDR">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BZD</td>
+            <td>2.019646</td>
+            <td><a href="/BZD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BAM</td>
+            <td>1.824519</td>
+            <td><a href="/BAM">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>EGP</td>
+            <td>18.630186</td>
+            <td><a href="/EGP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>MOP</td>
+            <td>8.095189</td>
+            <td><a href="/MOP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>NAD</td>
+            <td>15.49</td>
+            <td><a href="/NAD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>SSP</td>
+            <td>130.26</td>
+            <td><a href="/SSP">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>NIO</td>
+            <td>35.919846</td>
+            <td><a href="/NIO">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>PEN</td>
+            <td>3.713443</td>
+            <td><a href="/PEN">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>NZD</td>
+            <td>1.515263</td>
+            <td><a href="/NZD">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>WST</td>
+            <td>2.612952</td>
+            <td><a href="/WST">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>TMT</td>
+            <td>3.51</td>
+            <td><a href="/TMT">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>CLF</td>
+            <td>0.029421</td>
+            <td><a href="/CLF">check</a></td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>BRL</td>
+            <td>4.775</td>
+            <td><a href="/BRL">check</a></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<divclose><div>
+</div></divclose>
+</body>
+</html>
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

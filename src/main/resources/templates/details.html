@@ -6,30 +6,22 @@
 <body>
 <header th:insert="block/header :: header"/>
 <divopen th:insert="block/pagestyle :: pagestyle"/>
-<h4>Курс валют:</h4>
 <div th:insert="block/form :: form"/>
 <table>
     <thead>
     <tr>
         <th>Валюта</th>
         <th>Сегодня</th>
-        <th th:text="${dates}">Курс на дату</th:text></th>
-
-        <th>Сравнить с другой датой</th>
+        <th>Вчера</th>
     </tr>
     </thead>
     <tbody>
     <div th:each="i : ${details}">
-    <tr>
-        <td th:text="${i.getKey()}" />
-        <td th:text="${i.getValue()}" />
-        <td th:text="${oldCurrency}"/>
-            <form th:action="'/' + ${i.getKey()}" method="get">
-        <td><input type="text" name="userDate" placeholder="ГГГГ-ММ-ДД" class="form-control"></td>
-            <input type="hidden" name="getKey" th:value="*{i.getKey()}" />
-            <td><button type="submit" class="btn btn-success">Проверить</button></td>
-        </form>
-    </tr>
+        <tr>
+            <td th:text="${i.getKey()}"/>
+            <td th:text="${i.getValue()}"/>
+            <td th:text="${oldCurrency}"/>
+        </tr>
     </div>
     </tbody>
 </table>

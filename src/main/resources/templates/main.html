@@ -6,7 +6,6 @@
 <body>
 <header th:insert="block/header :: header"/>
 <divopen th:insert="block/pagestyle :: pagestyle"/>
-<h4>Курс валют:</h4>
 <div th:insert="block/form :: form"/>
 <table>
     <thead>
@@ -18,11 +17,11 @@
     </thead>
     <tbody>
     <div th:each="i : ${page}">
-    <tr>
-        <td th:text="${i.getKey()}" />
-        <td th:text="${i.getValue()}" />
-        <td><a th:href="'/' + ${i.getKey()}">check</a></td>
-    </tr>
+        <tr>
+            <td th:text="${i.getKey()}"/>
+            <td th:text="${i.getValue()}"/>
+            <td><a th:href="'/' + ${i.getKey()}">check</a></td>
+        </tr>
     </div>
     </tbody>
 </table>

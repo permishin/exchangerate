@@ -9,16 +9,16 @@
 Из функциональных возможностей наличие поля фильтрации для отбора валюты.
 Фильтрация по вхождению символов в короткое название валюты:
 <p align="center">
-<img src="readme_assets/halfstringfind.gif" width="80%"></p>
+<img src="readme_assets/halfstringfind.gif" width="50%"></p>
 
 Работы фильтра по методам toUpperCase и toLowerCase:
 <p align="center">
-<img src="readme_assets/upperlowercase.gif" width="80%"></p>
+<img src="readme_assets/upperlowercase.gif" width="50%"></p>
 Кнопка "check" для сравнения текущего курса выбранной вылюты с предыдущим рабочим днём. Результат сравнения выводит на экран рандомный gif из ресурса "giphy.com" c тегом "rich" или "broke" в зависимости от результата сравнения:
 
 <p align="center">
-<img src="readme_assets/itswork.gif" width="80%">
-<img src="readme_assets/itworkv2.gif" width="80%"></p>
+<img src="readme_assets/itswork.gif" width="50%">
+<img src="readme_assets/itworkv2.gif" width="50%"></p>
 
 ## Включает в себя
 

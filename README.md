@@ -1,20 +1,39 @@
-# ExchangerRate
+<h1 align="center">ExchangeRate</h1>
 
-Данный репозиторий содержит сервис, который обращается к сервису курсов валют, и отдает gif в ответ.
-Сервис построен на базе решений: Spring Boot 2, Gradle, Java, API (Feign), Thymeleaf.
 
-Репозиторий доступен так же в Docker по ссылке https://hub.docker.com/r/permishin/exchangerate
 
-Запуск в среде разработки:
+Данный репозиторий содержит в себе сервис курса валют, взаимодействующий с API (https://openexchangerates.org/api), и возвращающий gif через API (https://api.giphy.com) в зависимости от соотношения курса в разные дни в ответ.
 
-1 Перейти по ссылке https://github.com/permishin/exchangerate и скопировать адрес проекта Code -> Clone (HTTPS) -> https://github.com/permishin/exchangerate.git
+## Описание функционала
 
-2 В среде разработки:
+Из функциональных возможностей наличие поля фильтрации для отбора валюты.
+Фильтрация по вхождению символов в короткое название валюты:
+<p align="center">
+<img src="readme_assets/halfstringfind.gif" width="80%"></p>
 
-  2.1 Открыть File -> New -> Project from Version Control
-  
-  2.2 В поле URL вставить адрес проекта, полученный в шаге 1 (при необходимости в поле Directory можно изменить название выгружаемого проекта)
-  
-  2.3 Нажать кнопку Clone (произойдет загрузка проекта на локальную машину и автоматическое добавление его в среду разработки)
-  
-3 В терминале среды разработки выполнить Gradle -> clean -> build и запустить исполняемый файл DemoAplication.java
+Работы фильтра по методам toUpperCase и toLowerCase:
+<p align="center">
+<img src="readme_assets/upperlowercase.gif" width="80%"></p>
+Кнопка "check" для сравнения текущего курса выбранной вылюты с предыдущим рабочим днём. Результат сравнения выводит на экран рандомный gif из ресурса "giphy.com" c тегом "rich" или "broke" в зависимости от результата сравнения:
+<p align="center">
+<img src="readme_assets/itswork.gif" width="80%">
+<img src="readme_assets/itworkv2.gif" width="80%"></p>
+
+## Включает в себя
+
+Spring Boot 2, Gradle, Java, API (Feign), Thymeleaf.
+
+## Docker
+
+Репозиторий так же доступен в Docker: https://hub.docker.com/r/permishin/exchangerate
+
+## Установка
+
+Репозиторий: https://github.com/permishin/exchangerate.git
+Выполнить компнды
+```
+- clean
+- build
+```
+## Донат
+Донат приветствуется :beers:

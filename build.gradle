@@ -34,12 +34,12 @@ ext {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
-	implementation 'junit:junit:4.13.2'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation "org.springframework.boot:spring-boot-starter"
 	implementation "org.springframework:spring-web"
 	implementation "com.fasterxml.jackson.core:jackson-databind"
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+	testImplementation 'junit:junit:4.13.2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

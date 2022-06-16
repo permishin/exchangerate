@@ -23,7 +23,7 @@ class GiphyClientTest {
     @Test
     void giphyPic() {
         Giphy giphy = giphyClient.giphyPic("rich");
-        String q = (String) giphy.getGif();
+        String q = giphy.getResponse().getGif();
         String start = q.substring(0, 13);
         String end = q.substring(q.length() - 18);
         String gifLinkStart = "https://media";

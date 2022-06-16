@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -16,10 +17,12 @@ public class RateInfoController {
 
     private final RateClient rateClient;
     private final GiphyClient giphyClient;
+    private final ExchangeMethods exchangeMethods;
 
-    public RateInfoController(RateClient rateClient, GiphyClient giphyClient) {
+    public RateInfoController(RateClient rateClient, GiphyClient giphyClient, ExchangeMethods exchangeMethods) {
         this.rateClient = rateClient;
         this.giphyClient = giphyClient;
+        this.exchangeMethods = exchangeMethods;
     }
 
     /**
@@ -31,13 +34,13 @@ public class RateInfoController {
      */
     @GetMapping("/{getKey}")
     public String details(@PathVariable(value = "getKey") String getKey, Model model) {
-        Map<String, Double> details = new TreeMap<>();
+        Map<String, BigDecimal> details = new HashMap<>();
         String yesterday = LocalDate.now().minusDays(1).toString();
         Rate pages = rateClient.getHistoricalRate(yesterday, getKey);
-        Double oldCurrency = pages.getRates().get(getKey);
-        Double todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
+        BigDecimal oldCurrency = pages.getRates().get(getKey);
+        BigDecimal todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
         details.put(getKey, todayCurrency);
-        Object gif = giphyClient.giphyPic(ExchangeMethods.calculator(todayCurrency, oldCurrency)).getGif();
+        String gif = giphyClient.giphyPic(exchangeMethods.calculator(todayCurrency, oldCurrency)).getResponse().getGif();
         model.addAttribute("oldCurrency", oldCurrency);
         model.addAttribute("dates", yesterday);
         model.addAttribute("gif", gif);

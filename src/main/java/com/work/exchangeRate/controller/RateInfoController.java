@@ -1,9 +1,9 @@
 package com.work.exchangeRate.controller;
 
 import com.work.exchangeRate.service.ExchangeMethods;
-import com.work.exchangeRate.service.GiphyClient;
-import com.work.exchangeRate.model.Page;
-import com.work.exchangeRate.service.PageClient;
+import com.work.exchangeRate.ApiInterface.GiphyClient;
+import com.work.exchangeRate.model.Rate;
+import com.work.exchangeRate.ApiInterface.RateClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,41 +12,32 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Controller
-@RequestMapping("{getKey}")
-public class EditController {
+public class RateInfoController {
 
-
-    private final PageClient pageClient;
-
+    private final RateClient rateClient;
     private final GiphyClient giphyClient;
 
-    private final ExchangeMethods exchangeMethods;
-
-    public EditController(PageClient pageClient, GiphyClient giphyClient, ExchangeMethods exchangeMethods) {
-        this.pageClient = pageClient;
+    public RateInfoController(RateClient rateClient, GiphyClient giphyClient) {
+        this.rateClient = rateClient;
         this.giphyClient = giphyClient;
-        this.exchangeMethods = exchangeMethods;
     }
 
     /**
      * Get метод страницы выбранного валютного значения с курсом валюты за сегодня и вчера
+     *
      * @param getKey валютное значение
-     * @param model атрибуты, используемые для визуализации представлений
+     * @param model  атрибуты, используемые для визуализации представлений
      * @return возвращает данные на страницу details
      */
-    @GetMapping
+    @GetMapping("/{getKey}")
     public String details(@PathVariable(value = "getKey") String getKey, Model model) {
         Map<String, Double> details = new TreeMap<>();
         String yesterday = LocalDate.now().minusDays(1).toString();
-        Page pages = pageClient.getHistoricalPage(yesterday, getKey);
+        Rate pages = rateClient.getHistoricalRate(yesterday, getKey);
         Double oldCurrency = pages.getRates().get(getKey);
-        Double todayCurrency = pageClient.getLatestPage().getRates().get(getKey);
+        Double todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
         details.put(getKey, todayCurrency);
-        Object gif = giphyClient.giphyPic(exchangeMethods.calculator(todayCurrency, oldCurrency))
-                .getData()
-                .getImages()
-                .getOriginal()
-                .get("url");
+        Object gif = giphyClient.giphyPic(ExchangeMethods.calculator(todayCurrency, oldCurrency)).getGif();
         model.addAttribute("oldCurrency", oldCurrency);
         model.addAttribute("dates", yesterday);
         model.addAttribute("gif", gif);

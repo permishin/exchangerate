@@ -21,7 +21,7 @@ public class RateInfoController {
 
     private final ExchangeMethods exchangeMethods;
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public RateInfoController(RateClient rateClient, GiphyClient giphyClient, ExchangeMethods exchangeMethods) {
         this.rateClient = rateClient;
@@ -32,18 +32,18 @@ public class RateInfoController {
     /**
      * Get метод страницы выбранного валютного значения с курсом валюты за сегодня и вчера
      *
-     * @param getKey валютное значение
+     * @param currency валютное значение
      * @param model  атрибуты, используемые для визуализации представлений
      * @return возвращает данные на страницу details
      */
     @GetMapping("/{getKey}")
-    public String details(@PathVariable(value = "getKey") String getKey, Model model) {
+    public String details(@PathVariable(value = "getKey") String currency, Model model) {
         Map<String, BigDecimal> details = new TreeMap<>();
         String yesterday = formatter.format(LocalDate.now().minusDays(1));
-        Rate pages = rateClient.getHistoricalRate(yesterday, getKey);
-        BigDecimal oldCurrency = pages.getRates().get(getKey);
-        BigDecimal todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
-        details.put(getKey, todayCurrency);
+        Rate pages = rateClient.getHistoricalRate(yesterday, currency);
+        BigDecimal oldCurrency = pages.getRates().get(currency);
+        BigDecimal todayCurrency = rateClient.getLatestRates().getRates().get(currency);
+        details.put(currency, todayCurrency);
         Object gif = giphyClient.giphyPic(exchangeMethods.calculate(todayCurrency, oldCurrency)).getGif();
         model.addAttribute("oldCurrency", oldCurrency);
         model.addAttribute("dates", yesterday);

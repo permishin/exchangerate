@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Controller
@@ -17,9 +19,14 @@ public class RateInfoController {
     private final RateClient rateClient;
     private final GiphyClient giphyClient;
 
-    public RateInfoController(RateClient rateClient, GiphyClient giphyClient) {
+    private final ExchangeMethods exchangeMethods;
+
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+
+    public RateInfoController(RateClient rateClient, GiphyClient giphyClient, ExchangeMethods exchangeMethods) {
         this.rateClient = rateClient;
         this.giphyClient = giphyClient;
+        this.exchangeMethods = exchangeMethods;
     }
 
     /**
@@ -31,13 +38,13 @@ public class RateInfoController {
      */
     @GetMapping("/{getKey}")
     public String details(@PathVariable(value = "getKey") String getKey, Model model) {
-        Map<String, Double> details = new TreeMap<>();
-        String yesterday = LocalDate.now().minusDays(1).toString();
+        Map<String, BigDecimal> details = new TreeMap<>();
+        String yesterday = formatter.format(LocalDate.now().minusDays(1));
         Rate pages = rateClient.getHistoricalRate(yesterday, getKey);
-        Double oldCurrency = pages.getRates().get(getKey);
-        Double todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
+        BigDecimal oldCurrency = pages.getRates().get(getKey);
+        BigDecimal todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
         details.put(getKey, todayCurrency);
-        Object gif = giphyClient.giphyPic(ExchangeMethods.calculator(todayCurrency, oldCurrency)).getGif();
+        Object gif = giphyClient.giphyPic(exchangeMethods.calculate(todayCurrency, oldCurrency)).getGif();
         model.addAttribute("oldCurrency", oldCurrency);
         model.addAttribute("dates", yesterday);
         model.addAttribute("gif", gif);

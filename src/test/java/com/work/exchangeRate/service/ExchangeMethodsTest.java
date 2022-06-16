@@ -5,42 +5,58 @@ import com.work.exchangeRate.model.Rate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExchangeMethodsTest {
+@ExtendWith(MockitoExtension.class)
+class ExchangeMethodsTest {
+    HashMap<String, BigDecimal> rates;
+    BigDecimal costToday;
+    BigDecimal costYesterday;
 
+    Rate rate;
+
+    @Mock
     RateClient rateClient;
-    HashMap<String, Double> rates;
-    Double costToday;
-    Double costYesterday;
+
+    @InjectMocks
+    ExchangeMethods exchangeMethods;
 
     @BeforeEach
     void setUp() {
-        costToday = 10.97;
-        costYesterday = 12.3;
+        costToday = BigDecimal.valueOf(10.97);
+        costYesterday = BigDecimal.valueOf(12.3);
 
         rates = new HashMap<>();
-        rates.put("RUB", 12.32);
-        rates.put("EUR", 1.10);
-        rates.put("FJD", 2.15);
-        rates.put("USD", 43.9);
-        rates.put("MRU", 11.1);
+        rates.put("RUB", BigDecimal.valueOf(12.32));
+        rates.put("EUR", BigDecimal.valueOf(1.10));
+        rates.put("FJD", BigDecimal.valueOf(2.15));
+        rates.put("USD", BigDecimal.valueOf(43.9));
+        rates.put("MRU", BigDecimal.valueOf(11.1));
 
-        rateClient = new RateClient() {
-            @Override
-            public Rate getLatestRates() {
-                Rate rate = new Rate();
-                rate.setRates(rates);
-                return rate;
-            }
+       rate = new Rate();
+       rate.setRates(rates);
 
-            @Override
-            public Rate getHistoricalRate(String userDate, String value) {
-                return null;
-            }
-        };
+//        rateClient = new RateClient() {
+//            @Override
+//            public Rate getLatestRates() {
+//                Rate rate = new Rate();
+//                rate.setRates(rates);
+//                return rate;
+//            }
+//
+//            @Override
+//            public Rate getHistoricalRate(String userDate, String value) {
+//                return null;
+//            }
+//        };
     }
 
     /**
@@ -48,36 +64,46 @@ public class ExchangeMethodsTest {
      * роста, отсутствия изменений и возврата значения null
      */
     @Test
-    public void testCalculator() {
-        String actualDown = ExchangeMethods.calculator(costToday, costYesterday);
-        String actualUp = ExchangeMethods.calculator(costYesterday, costToday);
-        String actual = ExchangeMethods.calculator(costToday, costToday);
-        String expectedDown = "broke";
-        String expectedUp = "rich";
-        Assertions.assertEquals(expectedDown, actualDown);
-        Assertions.assertEquals(expectedUp, actualUp);
-        Assertions.assertEquals(expectedDown, actual);
-        try {
-            Object actualNull = ExchangeMethods.calculator(null, costToday);
-            Assertions.assertNull(actualNull);
-        } catch (NullPointerException ex) {
-            ex.getStackTrace();
-        }
+    void testCalculatorSuccess() {
+        //actual
+        String actualDown = exchangeMethods.calculate(costToday, costYesterday);
+        String actualUp = exchangeMethods.calculate(costYesterday, costToday);
+        String actual = exchangeMethods.calculate(costToday, costToday);
+
+        //expected
+        Assertions.assertEquals("broke", actualDown);
+        Assertions.assertEquals("rich", actualUp);
+        Assertions.assertEquals("rich", actual);
     }
+
+    @Test
+    void testCalculatorNPE() {
+        exchangeMethods.calculate(null, null);
+    }
+
+//    try {
+//        Object actualNull = exchangeMethods.calculate(null, costToday);
+//        Assertions.assertNull(actualNull);
+//    } catch (NullPointerException ex) {
+//        ex.getStackTrace();
+//    }
 
     /**
      * Тест на проверку фильтрации валют по ключевому слову, пустой строке, и частичному запросу
      */
     @Test
-    public void testFilter() {
-        Map<String, Double> actualRub = ExchangeMethods.filter("RUB", rateClient);
-        Map<String, Double> actualEmpty = ExchangeMethods.filter("", rateClient);
-        Map<String, Double> actualRu = ExchangeMethods.filter("ru", rateClient);
-        Map<String, Double> expectedRub = new HashMap<>();
-        expectedRub.put("RUB", 12.32);
-        Map<String, Double> expectedRu = new HashMap<>();
-        expectedRu.put("RUB", 12.32);
-        expectedRu.put("MRU", 11.1);
+    void testFilterEmptyValue() {
+        Mockito.when(rateClient.getLatestRates())
+                .thenReturn(rate);
+
+        Map<String, BigDecimal> actualRub = exchangeMethods.filter("RUB");
+        Map<String, BigDecimal> actualEmpty = exchangeMethods.filter("");
+        Map<String, BigDecimal> actualRu = exchangeMethods.filter("ru");
+        Map<String, BigDecimal> expectedRub = new HashMap<>();
+        expectedRub.put("RUB", BigDecimal.valueOf(12.32));
+        Map<String, BigDecimal> expectedRu = new HashMap<>();
+        expectedRu.put("RUB", BigDecimal.valueOf(12.32));
+        expectedRu.put("MRU", BigDecimal.valueOf(11.1));
         Assertions.assertEquals(expectedRub, actualRub);
         Assertions.assertEquals(rates, actualEmpty);
         Assertions.assertEquals(expectedRu, actualRu);

@@ -2,18 +2,19 @@ package com.work.exchangeRate.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.HashMap;
+import java.math.BigDecimal;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Rate {
 
-    private HashMap<String, Double> rates;
+    private Map<String, BigDecimal> rates;
 
-    public HashMap<String, Double> getRates() {
+    public Map<String, BigDecimal> getRates() {
         return rates;
     }
 
-    public void setRates(HashMap<String, Double> rates) {
+    public void setRates(Map<String, BigDecimal> rates) {
         this.rates = rates;
     }
 }

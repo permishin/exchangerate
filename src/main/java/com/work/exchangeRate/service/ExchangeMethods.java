@@ -3,18 +3,11 @@ package com.work.exchangeRate.service;
 import com.work.exchangeRate.ApiInterface.RateClient;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.TreeMap;
 
 @Service
 public class ExchangeMethods {
-
-    private final RateClient rateClient;
-
-    public ExchangeMethods(RateClient rateClient) {
-        this.rateClient = rateClient;
-    }
 
     /**
      * Сравнение валютного курса за два дня
@@ -23,24 +16,28 @@ public class ExchangeMethods {
      * @param costYesterday валютный курс на вчера
      * @return возвращает "rich" или "broke" для подстановки в сервис giphy
      */
-    public static String calculator(BigDecimal costToday, BigDecimal costYesterday) {
-        return costToday.compareTo(costYesterday) >= 0 ? "broke" : "rich";
+    public static String calculator(Double costToday, Double costYesterday) {
+        return (costToday <= costYesterday) ? "broke" : "rich";
     }
 
     /**
      * Фильтрация map по значению, полученного из формы form.html
      *
-     * @param filter ключевое значение для фильтрации
+     * @param filter     ключевое значение для фильтрации
+     * @param rateClient интерфейс API сервиса openexchangerates.org/api
      * @return отфильтрованная map
      */
-    public Map<String, BigDecimal> filter(String filter) {
+    public static Map<String, Double> filter(String filter, RateClient rateClient) {
+        Map<String, Double> filteredRates = new TreeMap<>();
         if (filter != null && !filter.isEmpty()) {
-            return rateClient.getLatestRates().getRates().entrySet().stream()
-                    .filter(entry -> entry.getKey().contains(filter.toUpperCase()))
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
+            for (Map.Entry<String, Double> value : rateClient.getLatestRates().getRates().entrySet()) {
+                if (value.getKey().contains(filter.toUpperCase())) {
+                    filteredRates.put(value.getKey(), value.getValue());
+                }
+            }
         } else {
-            return rateClient.getLatestRates().getRates();
+            filteredRates = rateClient.getLatestRates().getRates();
         }
+        return filteredRates;
     }
 }

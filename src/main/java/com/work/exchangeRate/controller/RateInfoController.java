@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -34,13 +33,14 @@ public class RateInfoController {
      */
     @GetMapping("/{getKey}")
     public String details(@PathVariable(value = "getKey") String getKey, Model model) {
-        Map<String, BigDecimal> details = new HashMap<>();
+        Map<String, Double> details = new TreeMap<>();
         String yesterday = LocalDate.now().minusDays(1).toString();
         Rate pages = rateClient.getHistoricalRate(yesterday, getKey);
-        BigDecimal oldCurrency = pages.getRates().get(getKey);
-        BigDecimal todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
+        Double oldCurrency = pages.getRates().get(getKey);
+        Double todayCurrency = rateClient.getLatestRates().getRates().get(getKey);
         details.put(getKey, todayCurrency);
-        String gif = giphyClient.giphyPic(exchangeMethods.calculator(todayCurrency, oldCurrency)).getResponse().getGif();
+        String resultGiphyCalc = exchangeMethods.calculator(todayCurrency, oldCurrency);
+        Object gif = giphyClient.giphyPic(resultGiphyCalc).getGif();
         model.addAttribute("oldCurrency", oldCurrency);
         model.addAttribute("dates", yesterday);
         model.addAttribute("gif", gif);

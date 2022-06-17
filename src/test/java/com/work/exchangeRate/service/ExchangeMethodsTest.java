@@ -5,38 +5,28 @@ import com.work.exchangeRate.model.Rate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-@ExtendWith(MockitoExtension.class)
 public class ExchangeMethodsTest {
 
-    @Mock
     RateClient rateClient;
-
-    @InjectMocks
-    ExchangeMethods exchangeMethods;
-
-    HashMap<String, BigDecimal> rates;
-    BigDecimal costToday;
-    BigDecimal costYesterday;
+    HashMap<String, Double> rates;
+    Double costToday;
+    Double costYesterday;
 
     @BeforeEach
     void setUp() {
-        costToday = BigDecimal.valueOf(10.97);
-        costYesterday = BigDecimal.valueOf(12.3);
+        costToday = 10.97;
+        costYesterday = 12.3;
+
         rates = new HashMap<>();
-        rates.put("RUB", BigDecimal.valueOf(12.32));
-        rates.put("EUR", BigDecimal.valueOf(1.10));
-        rates.put("FJD", BigDecimal.valueOf(2.15));
-        rates.put("USD", BigDecimal.valueOf(43.9));
-        rates.put("MRU", BigDecimal.valueOf(11.1));
+        rates.put("RUB", 12.32);
+        rates.put("EUR", 1.10);
+        rates.put("FJD", 2.15);
+        rates.put("USD", 43.9);
+        rates.put("MRU", 11.1);
 
         rateClient = new RateClient() {
             @Override
@@ -59,9 +49,9 @@ public class ExchangeMethodsTest {
      */
     @Test
     public void testCalculator() {
-        String actualDown = exchangeMethods.calculator(costToday, costYesterday);
-        String actualUp = exchangeMethods.calculator(costYesterday, costToday);
-        String actual = exchangeMethods.calculator(costToday, costToday);
+        String actualDown = ExchangeMethods.calculator(costToday, costYesterday);
+        String actualUp = ExchangeMethods.calculator(costYesterday, costToday);
+        String actual = ExchangeMethods.calculator(costToday, costToday);
         String expectedDown = "broke";
         String expectedUp = "rich";
         Assertions.assertEquals(expectedDown, actualDown);
@@ -80,9 +70,9 @@ public class ExchangeMethodsTest {
      */
     @Test
     public void testFilter() {
-        Map<String, BigDecimal> actualRub = exchangeMethods.filter("RUB");
-        Map<String, BigDecimal> actualEmpty = exchangeMethods.filter("");
-        Map<String, BigDecimal> actualRu = exchangeMethods.filter("ru");
+        Map<String, Double> actualRub = ExchangeMethods.filter("RUB", rateClient);
+        Map<String, Double> actualEmpty = ExchangeMethods.filter("", rateClient);
+        Map<String, Double> actualRu = ExchangeMethods.filter("ru", rateClient);
         Map<String, Double> expectedRub = new HashMap<>();
         expectedRub.put("RUB", 12.32);
         Map<String, Double> expectedRu = new HashMap<>();

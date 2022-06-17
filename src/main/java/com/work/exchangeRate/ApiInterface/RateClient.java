@@ -13,15 +13,15 @@ public interface RateClient {
 
     @GetMapping
             (
-                    value = "/latest.json?app_id=${api.valueId}",
-                    consumes = MediaType.APPLICATION_JSON_VALUE
+            value = "/latest.json?app_id=${api.valueId}",
+            consumes = MediaType.APPLICATION_JSON_VALUE
             )
     Rate getLatestRates();
 
     @GetMapping
             (
-                    value = "/historical/{userDate}.json?app_id=${api.valueId}&symbols={value}",
-                    consumes = MediaType.APPLICATION_JSON_VALUE
+            value = "/historical/{userDate}.json?app_id=${api.valueId}&symbols={value}",
+            consumes = MediaType.APPLICATION_JSON_VALUE
             )
     Rate getHistoricalRate(@PathVariable String userDate, @PathVariable String value);
 }

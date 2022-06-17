@@ -41,7 +41,7 @@ public class MainController {
      */
     @PostMapping("/filter")
     public String filter(@RequestParam String filter, Model model) {
-        model.addAttribute("page", exchangeMethods.filter(filter));
+        model.addAttribute("page", exchangeMethods.filter(filter, rateClient));
         return "main";
     }
 }

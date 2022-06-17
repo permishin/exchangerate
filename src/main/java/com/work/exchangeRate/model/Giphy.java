@@ -5,11 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Giphy {
 
-    private Request request;
+    private Giphy data;
     private Images images;
 
-    public Request getResponse() {
-        return request;
+    public Object getGif() {
+        return getData()
+                .getImages()
+                .getOriginal()
+                .get("url");
+    }
+
+    public Giphy getData() {
+        return data;
     }
 
     public Images getImages() {
